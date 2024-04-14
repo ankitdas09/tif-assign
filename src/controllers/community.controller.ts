@@ -46,7 +46,6 @@ export async function CommunityCreate(
         statusCode: 200,
         status: true,
         data: { ...newCommunity.toJSON() },
-        meta: {},
     });
 }
 

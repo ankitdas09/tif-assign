@@ -80,7 +80,6 @@ export async function MemberAdd(
         statusCode: 200,
         status: true,
         data: { ...newMember.toJSON() },
-        meta: {},
     });
 }
 
@@ -89,50 +88,27 @@ export async function MemberDelete(
     res: express.Response,
     next: express.NextFunction
 ) {
-    const { id, communityId } = req.params;
+    const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return next(new ResourceNotFoundError([{ param: "user", message: "User not found" }]));
-    }
-    if (!mongoose.Types.ObjectId.isValid(communityId)) {
-        return next(
-            new ResourceNotFoundError([{ param: "community", message: "Community not found" }])
-        );
+        return next(new ResourceNotFoundError([{ message: "Member not found" }]));
     }
 
-    const myMembership = await Member.findOne({
-        user: req.user!.id,
-        community: communityId,
-    });
+    const membership = await Member.findById(id);
+    console.log(membership);
+    if (!membership) return next(new ResourceNotFoundError([{ message: "Member not found" }]));
+    const myMembership = await Member.findOne({ community: membership.community, user: req.user!.id });
     if (!myMembership) return next(new NotAllowedError());
-
-    const myRole = await Role.findById(myMembership.role);
+    const myRole = await Role.findById(myMembership.role)
     if (!myRole) return next(new NotAllowedError());
-
-    if (myRole.name !== "Community Admin" && myRole.name !== "Community Moderator")
+    if(myRole.name !== "Community Admin" && myRole.name !== "Community Moderator"){
         return next(new NotAllowedError());
-
-    const validMember = await Member.countDocuments({
-        community: communityId,
-        user: id,
-    });
-    if (validMember == 0) {
-        return next(
-            new ResourceNotFoundError([
-                { param: "user", message: "User does not exist in that community." },
-            ])
-        );
     }
-
-    await Member.deleteOne({
-        community: communityId,
-        user: id,
-    });
+    
+    await Member.findByIdAndDelete(id)
 
     return JsonResponse(res, {
         statusCode: 200,
         status: true,
-        data: {},
-        meta: {},
     });
 }

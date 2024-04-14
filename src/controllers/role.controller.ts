@@ -29,7 +29,6 @@ export async function RoleCreate(
         statusCode: 200,
         status: true,
         data: { ...newRole.toJSON() },
-        meta: {},
     });
 }
 

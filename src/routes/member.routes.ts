@@ -16,7 +16,7 @@ MemberRouter.post(
     MemberAdd
 );
 MemberRouter.delete(
-    "/member/:id/:communityId",
+    "/member/:id",
     currentUser,
     requireAuth,
     MemberDelete

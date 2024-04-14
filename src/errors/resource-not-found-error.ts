@@ -2,7 +2,7 @@ import { CustomError } from "./custom-error";
 
 export class ResourceNotFoundError extends CustomError {
     statusCode = 400;
-    constructor(public errors: [{ param: string; message: string }]) {
+    constructor(public errors: [{ param?: string; message: string }]) {
         super("resource error");
         Object.setPrototypeOf(this, ResourceNotFoundError.prototype);
     }

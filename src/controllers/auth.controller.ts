@@ -83,6 +83,5 @@ export async function AuthMe(
         statusCode: 200,
         status: true,
         data: { ...existingUser?.toJSON() },
-        meta: {},
     });
 }
