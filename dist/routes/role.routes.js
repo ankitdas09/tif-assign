@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RoleRouter = void 0;
+const express_1 = require("express");
+const validate_request_1 = require("../middlewares/validate-request");
+const current_user_1 = require("../middlewares/current-user");
+const require_auth_1 = require("../middlewares/require-auth");
+const role_validation_1 = require("../validation/role.validation");
+const role_controller_1 = require("../controllers/role.controller");
+const RoleRouter = (0, express_1.Router)();
+exports.RoleRouter = RoleRouter;
+RoleRouter.post("/role", role_validation_1.RoleValidation.create, validate_request_1.validateRequest, current_user_1.currentUser, require_auth_1.requireAuth, role_controller_1.RoleCreate);
+RoleRouter.get("/role", role_controller_1.RoleGetAll);
