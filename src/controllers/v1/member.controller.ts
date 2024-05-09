@@ -1,15 +1,15 @@
-import { TypedRequest } from "..";
+import { TypedRequest } from "../../server";
 import express from "express";
-import { Role, RoleDoc } from "../models/role.model";
-import { JsonResponse } from "../utils/buildResponse";
-import { ResourceExistsError } from "../errors/resource-exists-error";
+import { Role, RoleDoc } from "../../schema/v1/role.model";
+import { JsonResponse } from "../../universe/v1/libraries/buildResponse";
+import { ResourceExistsError } from "../../universe/v1/errors/resource-exists-error";
 import mongoose from "mongoose";
-import { ResourceNotFoundError } from "../errors/resource-not-found-error";
-import { Community } from "../models/community.model";
-import { User } from "../models/user.model";
-import { NotAllowedError } from "../errors/not-allowed-error";
-import { Member } from "../models/member.model";
-import { OtherCustomError } from "../errors/other-error";
+import { ResourceNotFoundError } from "../../universe/v1/errors/resource-not-found-error";
+import { Community } from "../../schema/v1/community.model";
+import { User } from "../../schema/v1/user.model";
+import { NotAllowedError } from "../../universe/v1/errors/not-allowed-error";
+import { Member } from "../../schema/v1/member.model";
+import { OtherCustomError } from "../../universe/v1/errors/other-error";
 interface MemberAddBody {
     community: string;
     user: string;

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { config } from "../";
-import { Token } from "../utils/token";
+import { config } from "../../../server";
+import { Token } from "../libraries/token";
 
 export interface UserDecoded {
     id: string;

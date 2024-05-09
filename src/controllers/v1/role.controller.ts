@@ -1,8 +1,8 @@
-import { TypedRequest } from "..";
+import { TypedRequest } from "../../server";
 import express from "express";
-import { Role } from "../models/role.model";
-import { JsonResponse } from "../utils/buildResponse";
-import { ResourceExistsError } from "../errors/resource-exists-error";
+import { Role } from "../../schema/v1/role.model";
+import { JsonResponse } from "../../universe/v1/libraries/buildResponse";
+import { ResourceExistsError } from "../../universe/v1/errors/resource-exists-error";
 interface RoleCreateBody {
     name: string;
 }

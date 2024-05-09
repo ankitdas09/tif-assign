@@ -1,15 +1,15 @@
 import { Router } from "express";
-import { validateRequest } from "../middlewares/validate-request";
-import { currentUser } from "../middlewares/current-user";
-import { requireAuth } from "../middlewares/require-auth";
-import { CommunityValidation } from "../validation/community.validation";
+import { validateRequest } from "../../universe/v1/middlewares/validate-request";
+import { currentUser } from "../../universe/v1/middlewares/current-user";
+import { requireAuth } from "../../universe/v1/middlewares/require-auth";
+import { CommunityValidation } from "../../universe/v1/validation/community.validation";
 import {
     CommunityCreate,
     CommunityGetAll,
     CommunityGetAllMembers,
     CommunityGetJoined,
     CommunityGetOwned,
-} from "../controllers/community.controller";
+} from "../../controllers/v1/community.controller";
 
 const CommunityRouter = Router();
 

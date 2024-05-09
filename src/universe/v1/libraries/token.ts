@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { config } from "../";
+import { config } from "../../../server";
 import { UserDecoded } from "../middlewares/current-user";
 
 export class Token {

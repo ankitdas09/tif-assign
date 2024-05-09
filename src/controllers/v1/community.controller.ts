@@ -1,11 +1,11 @@
 import express from "express";
-import { TypedRequest } from "..";
-import { JsonResponse } from "../utils/buildResponse";
-import { Community } from "../models/community.model";
+import { TypedRequest } from "../../server";
+import { JsonResponse } from "../../universe/v1/libraries/buildResponse";
+import { Community } from "../../schema/v1/community.model";
 import { v4 as uuidv4 } from "uuid";
-import { Member } from "../models/member.model";
-import { Role } from "../models/role.model";
-import { ResourceNotFoundError } from "../errors/resource-not-found-error";
+import { Member } from "../../schema/v1/member.model";
+import { Role } from "../../schema/v1/role.model";
+import { ResourceNotFoundError } from "../../universe/v1/errors/resource-not-found-error";
 
 interface CreateBody {
     name: string;

@@ -1,12 +1,12 @@
 import express from "express";
-import { User } from "../models/user.model";
-import { TypedRequest } from "..";
+import { User } from "../../schema/v1/user.model";
+import { TypedRequest } from "../../server";
 import bcrypt from "bcrypt";
-import { ResourceExistsError } from "../errors/resource-exists-error";
-import { JsonResponse } from "../utils/buildResponse";
-import { Token } from "../utils/token";
-import { OtherCustomError } from "../errors/other-error";
-import { InvalidCredentialsError } from "../errors/invalid-credentials-error";
+import { ResourceExistsError } from "../../universe/v1/errors/resource-exists-error";
+import { JsonResponse } from "../../universe/v1/libraries/buildResponse";
+import { Token } from "../../universe/v1/libraries/token";
+import { OtherCustomError } from "../../universe/v1/errors/other-error";
+import { InvalidCredentialsError } from "../../universe/v1/errors/invalid-credentials-error";
 
 interface SignupBody {
     name: string;
