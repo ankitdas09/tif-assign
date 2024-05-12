@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model communities {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int      @map("__v")
+  createdAt DateTime @db.Date
+  name      String
+  owner     String   @db.ObjectId
+  slug      String   @unique(map: "slug_1")
+  updatedAt DateTime @db.Date
+}
+
+model members {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int      @map("__v")
+  community String   @db.ObjectId
+  createdAt DateTime @db.Date
+  role      String   @db.ObjectId
+  updatedAt DateTime @db.Date
+  user      String   @db.ObjectId
+}
+
+model roles {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int      @map("__v")
+  createdAt DateTime @db.Date
+  name      String   @unique(map: "name_1")
+  scopes    String[]
+  updatedAt DateTime @db.Date
+}
+
+model users {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int      @map("__v")
+  createdAt DateTime @db.Date
+  email     String   @unique(map: "email_1")
+  name      String
+  password  String
+  updatedAt DateTime @db.Date
+}
