@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface MemberAttrs {
+export interface MemberAttrs {
     community: string;
     user: string;
     role: string;

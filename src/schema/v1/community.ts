@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface CommityAttrs {
+export interface CommityAttrs {
     name: string;
     slug: string;
     owner: string;

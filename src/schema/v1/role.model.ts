@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface UserAttrs {
+export interface RoleAttrs {
     name: string;
     scopes: string[];
 }
@@ -11,7 +11,7 @@ export interface RoleDoc extends mongoose.Document {
 }
 
 interface RoleModel extends mongoose.Model<RoleDoc> {
-    build(attrs: UserAttrs): RoleDoc;
+    build(attrs: RoleAttrs): RoleDoc;
 }
 
 const userSchema = new mongoose.Schema(
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-userSchema.statics.build = function (attrs: UserAttrs) {
+userSchema.statics.build = function (attrs: RoleAttrs) {
     return new Role(attrs);
 };
 

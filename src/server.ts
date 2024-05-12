@@ -1,13 +1,13 @@
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
 import dotenv from "dotenv";
-import { AuthRouter } from "./api/v1/auth.routes";
+import { AuthRouter } from "./api/v1/auth";
 import { errorHandler } from "./universe/v1/middlewares/error-handler";
 import { Query } from "express-serve-static-core";
 import mongoose from "mongoose";
-import { CommunityRouter } from "./api/v1/community.routes";
-import { RoleRouter } from "./api/v1/role.routes";
-import { MemberRouter } from "./api/v1/member.routes";
+import { CommunityRouter } from "./api/v1/community";
+import { RoleRouter } from "./api/v1/role";
+import { MemberRouter } from "./api/v1/member";
 import Logger from "./universe/v1/libraries/logger";
 import FrameworkLoader from "./loaders/v1/framework";
 import Env from "./loaders/v1/env";

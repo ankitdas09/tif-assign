@@ -9,7 +9,7 @@ import {
     CommunityGetAllMembers,
     CommunityGetJoined,
     CommunityGetOwned,
-} from "../../controllers/v1/community.controller";
+} from "../../controllers/v1/community";
 
 const CommunityRouter = Router();
 

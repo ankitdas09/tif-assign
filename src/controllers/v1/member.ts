@@ -5,7 +5,7 @@ import { JsonResponse } from "../../universe/v1/libraries/buildResponse";
 import { ResourceExistsError } from "../../universe/v1/errors/resource-exists-error";
 import mongoose from "mongoose";
 import { ResourceNotFoundError } from "../../universe/v1/errors/resource-not-found-error";
-import { Community } from "../../schema/v1/community.model";
+import { Community } from "../../schema/v1/community";
 import { User } from "../../schema/v1/user.model";
 import { NotAllowedError } from "../../universe/v1/errors/not-allowed-error";
 import { Member } from "../../schema/v1/member.model";
